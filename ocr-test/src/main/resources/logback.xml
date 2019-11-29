@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration>
+<configuration scan="true" scanPeriod="30 seconds">
+    
+    <!-- 화면용 -->
+	<appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>@@ %date{MM-dd HH:mm:ss.SSS}|%-5level|%throwable{4}%logger{0}.%M\(%line\)::%msg |%thread %n</pattern>
+		</encoder>
+	</appender>
+	
+	<!-- 정상로그용
+	<appender name="fileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+	    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+	    	<fileNamePattern>../logs/mcare_plus_log_%d{yyyy-MM-dd}_%i.log</fileNamePattern>
+	    	<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>100MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+	    </rollingPolicy>
+	    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>INFO</level>
+		</filter>
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>@@ %date{MM-dd HH:mm:ss.SSS}|%-5level|%throwable{4}%logger{0}.%M\(%line\)::%msg |%thread %n</pattern>
+		</encoder>
+	</appender>
+        -->
+
+	<logger name="com.treetory">
+	    <level value="DEBUG"/>
+	</logger>
+	<root level="DEBUG">
+		<appender-ref ref="consoleAppender" />
+		<!-- <appender-ref ref="fileAppender" /> -->
+	</root>
+	
+</configuration>
